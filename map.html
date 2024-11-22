@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://fastly.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_62c51a80a06981def43e340bf7ab16e2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+    <script src="https://fastly.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"/>
+    <style>
+    .continer {
+      height: 25px;
+      width: 200px;
+      background-color: #F9F6D8;
+    }
+
+    .continer div {
+      display: none;      /*默认隐藏*/
+    }
+
+    .continer:hover div {
+      display: initial;      /*当鼠标hover时展示*/
+    }
+  </style>
+</head>
+<body>
+
+ <div class="folium-map" id="map_62c51a80a06981def43e340bf7ab16e2">
+<div class="continer" style="position: fixed; bottom: 150px; right: 0px; z-index: 2000">
+    小型用户指南（鼠标放这）
+    <div>
+        初次进入网页为简易模式；右上角图层按钮可选择标准模式。搜索框请输入核电站名称。点击地图可显示经纬度。
+    </div>
+  </div>
+ </div>
+</body>
+<script>
+    
+    
+            var map_62c51a80a06981def43e340bf7ab16e2 = L.map(
+                "map_62c51a80a06981def43e340bf7ab16e2",
+                {
+                    center: [35.3, 100.6],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_27f05d1d988303377a9aa2441ddda0c2 = L.tileLayer(
+                "https://wprd01.is.autonavi.com/appmaptile?x={x}\u0026y={y}\u0026z={z}\u0026lang=zh_cn\u0026size=1\u0026scl=1\u0026style=7",
+                {"attribution": "\u9ad8\u5fb7-\u5e38\u89c4\u56fe", "detectRetina": false, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_27f05d1d988303377a9aa2441ddda0c2.addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var marker_d831573448607f33411eb4f3ad000bd6 = L.marker(
+                [23.82, 117.49],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_1052ee014d891182b8a41ba6f36e76c2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d831573448607f33411eb4f3ad000bd6.setIcon(icon_1052ee014d891182b8a41ba6f36e76c2);
+        
+    
+        var popup_1b04f4b9895892dfe66d796232f4b1ca = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_d7f36086a06ab10176838ea6dce1989c = $(`<div id="html_d7f36086a06ab10176838ea6dce1989c" style="width: 100.0%; height: 100.0%;">漳州-3:	 类型:PWR 状态:建设中 地点:漳州 参考单位功率[MW]:1129 总电容[MW]:1214<br>漳州-2:	 类型:PWR 状态:建设中 地点:漳州 参考单位功率[MW]:1126 总电容[MW]:1212<br>漳州-1:	 类型:PWR 状态:建设中 地点:漳州 参考单位功率[MW]:1126 总电容[MW]:1212<br><a href="https://www.cnnp.com.cn/cnnp/cydwzd62/zhgdzznyyxgs/1101008/index.html">漳州核电站</a></div>`)[0];
+                popup_1b04f4b9895892dfe66d796232f4b1ca.setContent(html_d7f36086a06ab10176838ea6dce1989c);
+            
+        
+
+        marker_d831573448607f33411eb4f3ad000bd6.bindPopup(popup_1b04f4b9895892dfe66d796232f4b1ca)
+        ;
+
+        
+    
+    
+            marker_d831573448607f33411eb4f3ad000bd6.bindTooltip(
+                `<div>
+                     漳州核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_db0e50818d5a6f3247a5b9c7471c51c1 = L.marker(
+                [21.71, 112.3],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_afdb2194f19c980b8bc4a1f8ee724522 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_db0e50818d5a6f3247a5b9c7471c51c1.setIcon(icon_afdb2194f19c980b8bc4a1f8ee724522);
+        
+    
+        var popup_5876cc42161b810a9e6658c1d0254df5 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_f5b2c0b18d62d40a7401272d42837b2d = $(`<div id="html_f5b2c0b18d62d40a7401272d42837b2d" style="width: 100.0%; height: 100.0%;">阳江-6:	 类型:PWR 状态:运行中 地点:阳江 参考单位功率[MW]:1000 总电容[MW]:1086<br>阳江-5:	 类型:PWR 状态:运行中 地点:阳江 参考单位功率[MW]:1000 总电容[MW]:1086<br>阳江-4:	 类型:PWR 状态:运行中 地点:阳江 参考单位功率[MW]:1000 总电容[MW]:1086<br>阳江-3:	 类型:PWR 状态:运行中 地点:阳江 参考单位功率[MW]:1000 总电容[MW]:1086<br>阳江-2:	 类型:PWR 状态:运行中 地点:阳江 参考单位功率[MW]:1000 总电容[MW]:1086<br>阳江-1:	 类型:PWR 状态:运行中 地点:阳江 参考单位功率[MW]:1000 总电容[MW]:1086<br><a href="http://www.yjnp.com.cn/">阳江核电站</a></div>`)[0];
+                popup_5876cc42161b810a9e6658c1d0254df5.setContent(html_f5b2c0b18d62d40a7401272d42837b2d);
+            
+        
+
+        marker_db0e50818d5a6f3247a5b9c7471c51c1.bindPopup(popup_5876cc42161b810a9e6658c1d0254df5)
+        ;
+
+        
+    
+    
+            marker_db0e50818d5a6f3247a5b9c7471c51c1.bindTooltip(
+                `<div>
+                     阳江核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8a8576eb4defa4ddc3ff254c4a8475e9 = L.marker(
+                [40.35, 120.53],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_3975556052fa3003c7a986cd82153278 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8a8576eb4defa4ddc3ff254c4a8475e9.setIcon(icon_3975556052fa3003c7a986cd82153278);
+        
+    
+        var popup_876888740af5a2e68719043b2ddf8ace = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_72c1f5e00363a79991ac624d5549fab3 = $(`<div id="html_72c1f5e00363a79991ac624d5549fab3" style="width: 100.0%; height: 100.0%;">徐大堡-2:	 类型:PWR 状态:建设中 地点:兴城 参考单位功率[MW]:1000 总电容[MW]:1290<br>徐大堡-1:	 类型:PWR 状态:建设中 地点:兴城 参考单位功率[MW]:1000 总电容[MW]:1290<br>徐大堡-4:	 类型:PWR 状态:建设中 地点:兴城 参考单位功率[MW]:1200 总电容[MW]:1274<br>徐大堡-3:	 类型:PWR 状态:建设中 地点:兴城 参考单位功率[MW]:1200 总电容[MW]:1274<br><a href="https://baike.baidu.com/item/%E5%BE%90%E5%A4%A7%E5%A0%A1%E6%A0%B8%E7%94%B5%E7%AB%99/5347171">徐大堡核电站</a></div>`)[0];
+                popup_876888740af5a2e68719043b2ddf8ace.setContent(html_72c1f5e00363a79991ac624d5549fab3);
+            
+        
+
+        marker_8a8576eb4defa4ddc3ff254c4a8475e9.bindPopup(popup_876888740af5a2e68719043b2ddf8ace)
+        ;
+
+        
+    
+    
+            marker_8a8576eb4defa4ddc3ff254c4a8475e9.bindTooltip(
+                `<div>
+                     徐大堡核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b54865451a8220c0b3b10ebcb5e5794a = L.marker(
+                [34.7, 119.45],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_576d41af56576730af07954f8ad73bd0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b54865451a8220c0b3b10ebcb5e5794a.setIcon(icon_576d41af56576730af07954f8ad73bd0);
+        
+    
+        var popup_efd4e66fab17a1ea9bdf17151d7bf672 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_5015f15731b769f5722c57d4a93c441d = $(`<div id="html_5015f15731b769f5722c57d4a93c441d" style="width: 100.0%; height: 100.0%;">田湾-8:	 类型:PWR 状态:建设中 地点:连云港 参考单位功率[MW]:1171 总电容[MW]:1265<br>田湾-7:	 类型:PWR 状态:建设中 地点:连云港 参考单位功率[MW]:1171 总电容[MW]:1265<br>田湾-6:	 类型:PWR 状态:运行中 地点:连云港 参考单位功率[MW]:1060 总电容[MW]:1118<br>田湾-5:	 类型:PWR 状态:运行中 地点:连云港 参考单位功率[MW]:1060 总电容[MW]:1118<br>田湾-4:	 类型:PWR 状态:运行中 地点:连云港 参考单位功率[MW]:1060 总电容[MW]:1126<br>田湾-3:	 类型:PWR 状态:运行中 地点:连云港 参考单位功率[MW]:1060 总电容[MW]:1126<br>田湾-2:	 类型:PWR 状态:运行中 地点:连云港 参考单位功率[MW]:1000 总电容[MW]:1060<br>田湾-1:	 类型:PWR 状态:运行中 地点:连云港 参考单位功率[MW]:1000 总电容[MW]:1060<br><a href="https://baike.baidu.com/item/%E7%94%B0%E6%B9%BE%E6%A0%B8%E7%94%B5%E7%AB%99/2695972">田湾核电站</a></div>`)[0];
+                popup_efd4e66fab17a1ea9bdf17151d7bf672.setContent(html_5015f15731b769f5722c57d4a93c441d);
+            
+        
+
+        marker_b54865451a8220c0b3b10ebcb5e5794a.bindPopup(popup_efd4e66fab17a1ea9bdf17151d7bf672)
+        ;
+
+        
+    
+    
+            marker_b54865451a8220c0b3b10ebcb5e5794a.bindTooltip(
+                `<div>
+                     田湾核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5d179a26b101d877810b04a1498bf6b5 = L.marker(
+                [27.03, 120.3],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_131043486952b0833261b1d2f258924f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_5d179a26b101d877810b04a1498bf6b5.setIcon(icon_131043486952b0833261b1d2f258924f);
+        
+    
+        var popup_fdaaa8a3e6f77d03ab8ffdf311d8c635 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_b6f88739783385a1fae8daf09f00b303 = $(`<div id="html_b6f88739783385a1fae8daf09f00b303" style="width: 100.0%; height: 100.0%;">宁德-1:	 类型:PWR 状态:运行中 地点:宁德 参考单位功率[MW]:1018 总电容[MW]:1089<br>宁德-2:	 类型:PWR 状态:运行中 地点:宁德 参考单位功率[MW]:1018 总电容[MW]:1089<br>宁德-3:	 类型:PWR 状态:运行中 地点:宁德 参考单位功率[MW]:1018 总电容[MW]:1089<br>宁德-4:	 类型:PWR 状态:运行中 地点:宁德 参考单位功率[MW]:1018 总电容[MW]:1089<br>宁德-5:	 类型:PWR 状态:建设中 地点:宁德 参考单位功率[MW]:1200 总电容[MW]:1200<br><a href="http://www.ndnp.com.cn/ndnp/c101496/listtt.shtml">宁德核电站</a></div>`)[0];
+                popup_fdaaa8a3e6f77d03ab8ffdf311d8c635.setContent(html_b6f88739783385a1fae8daf09f00b303);
+            
+        
+
+        marker_5d179a26b101d877810b04a1498bf6b5.bindPopup(popup_fdaaa8a3e6f77d03ab8ffdf311d8c635)
+        ;
+
+        
+    
+    
+            marker_5d179a26b101d877810b04a1498bf6b5.bindTooltip(
+                `<div>
+                     宁德核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8175555374cff1da6c2b06280bb4b5b1 = L.marker(
+                [30.45, 120.95],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_d29755c29f6b932185754ff671ab2b8e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_8175555374cff1da6c2b06280bb4b5b1.setIcon(icon_d29755c29f6b932185754ff671ab2b8e);
+        
+    
+        var popup_dc13a68fe8a072d57f0d53ec433d6189 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_cb3d388caa9c699b89d63065d0678ae4 = $(`<div id="html_cb3d388caa9c699b89d63065d0678ae4" style="width: 100.0%; height: 100.0%;">秦山-1:	 类型:PWR 状态:运行中 地点:嘉兴 参考单位功率[MW]:326 总电容[MW]:330<br>秦山 2-1:	 类型:PWR 状态:运行中 地点:嘉兴 参考单位功率[MW]:623 总电容[MW]:650<br>秦山 2-2:	 类型:PWR 状态:运行中 地点:嘉兴 参考单位功率[MW]:623 总电容[MW]:650<br>秦山 2-3:	 类型:PWR 状态:运行中 地点:嘉兴 参考单位功率[MW]:623 总电容[MW]:660<br>秦山 2-4:	 类型:PWR 状态:运行中 地点:嘉兴 参考单位功率[MW]:623 总电容[MW]:660<br>秦山 3-1:	 类型:PHWR 状态:运行中 地点:嘉兴 参考单位功率[MW]:677 总电容[MW]:728<br>秦山 3-2:	 类型:PHWR 状态:运行中 地点:嘉兴 参考单位功率[MW]:677 总电容[MW]:728<br><a href="https://www.cnnp.com.cn/cnnp/cydwzd62/qshdzhyx/1100788/index.html">秦山核电站</a></div>`)[0];
+                popup_dc13a68fe8a072d57f0d53ec433d6189.setContent(html_cb3d388caa9c699b89d63065d0678ae4);
+            
+        
+
+        marker_8175555374cff1da6c2b06280bb4b5b1.bindPopup(popup_dc13a68fe8a072d57f0d53ec433d6189)
+        ;
+
+        
+    
+    
+            marker_8175555374cff1da6c2b06280bb4b5b1.bindTooltip(
+                `<div>
+                     秦山核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2565306dff53b301fd29107fb7fa31f0 = L.marker(
+                [30.44, 120.93],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_fd328833e560fb5728ede54939cd3450 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_2565306dff53b301fd29107fb7fa31f0.setIcon(icon_fd328833e560fb5728ede54939cd3450);
+        
+    
+        var popup_b78c5adf691083ebe6a69fbbd185d063 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_99b1cbce79debc3e1a2d08677db26d20 = $(`<div id="html_99b1cbce79debc3e1a2d08677db26d20" style="width: 100.0%; height: 100.0%;">方家山-1:	 类型:PWR 状态:运行中 地点:嘉兴 参考单位功率[MW]:1012 总电容[MW]:1089<br>方家山-2:	 类型:PWR 状态:运行中 地点:嘉兴 参考单位功率[MW]:1012 总电容[MW]:1089<br><a href="https://baike.baidu.com/item/%E6%96%B9%E5%AE%B6%E5%B1%B1%E6%A0%B8%E7%94%B5%E7%AB%99/8947439">方家山核电站</a></div>`)[0];
+                popup_b78c5adf691083ebe6a69fbbd185d063.setContent(html_99b1cbce79debc3e1a2d08677db26d20);
+            
+        
+
+        marker_2565306dff53b301fd29107fb7fa31f0.bindPopup(popup_b78c5adf691083ebe6a69fbbd185d063)
+        ;
+
+        
+    
+    
+            marker_2565306dff53b301fd29107fb7fa31f0.bindTooltip(
+                `<div>
+                     方家山核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1c382e9dff94af33e3064370ebc59df6 = L.marker(
+                [29.1, 121.6],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_c9ca076afbc3c04394bac10bb5931576 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_1c382e9dff94af33e3064370ebc59df6.setIcon(icon_c9ca076afbc3c04394bac10bb5931576);
+        
+    
+        var popup_0e1479050ad9ffce4e4b869a9a05652a = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_451b1ffdf6da260da6a4664ac5ecadb2 = $(`<div id="html_451b1ffdf6da260da6a4664ac5ecadb2" style="width: 100.0%; height: 100.0%;">三门-1:	 类型:PWR 状态:运行中 地点:台州 参考单位功率[MW]:1157 总电容[MW]:1251<br>三门-2:	 类型:PWR 状态:运行中 地点:台州 参考单位功率[MW]:1157 总电容[MW]:1251<br>三门-3:	 类型:PWR 状态:建设中 地点:台州 参考单位功率[MW]:1163 总电容[MW]:1251<br>三门-4:	 类型:PWR 状态:建设中 地点:台州 参考单位功率[MW]:1163 总电容[MW]:1251<br><a href="https://www.cnnp.com.cn/cnnp/cydwzd62/smhdyxgs/1100905/index.html">三门核电站</a></div>`)[0];
+                popup_0e1479050ad9ffce4e4b869a9a05652a.setContent(html_451b1ffdf6da260da6a4664ac5ecadb2);
+            
+        
+
+        marker_1c382e9dff94af33e3064370ebc59df6.bindPopup(popup_0e1479050ad9ffce4e4b869a9a05652a)
+        ;
+
+        
+    
+    
+            marker_1c382e9dff94af33e3064370ebc59df6.bindTooltip(
+                `<div>
+                     三门核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_30e5c4989ad308dbfe46319f24ede0f3 = L.marker(
+                [36.97, 122.52],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_bffd4df51305df68c6138f0bac78b578 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_30e5c4989ad308dbfe46319f24ede0f3.setIcon(icon_bffd4df51305df68c6138f0bac78b578);
+        
+    
+        var popup_be5b9d3b8f9de37282fa96229c1d1615 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_a87998cc5afe41b5c5bbb7d2429b7a96 = $(`<div id="html_a87998cc5afe41b5c5bbb7d2429b7a96" style="width: 100.0%; height: 100.0%;">石岛湾-1:	 类型:HTGR 状态:运行中 地点:威海 参考单位功率[MW]:150 总电容[MW]:211<br>石岛湾-2:	 类型:PWR 状态:建设中 地点:威海 参考单位功率[MW]:1134 总电容[MW]:1225<br><a href="https://baike.baidu.com/item/%E7%9F%B3%E5%B2%9B%E6%B9%BE%E6%A0%B8%E7%94%B5%E7%AB%99/1407051">石岛湾核电站</a></div>`)[0];
+                popup_be5b9d3b8f9de37282fa96229c1d1615.setContent(html_a87998cc5afe41b5c5bbb7d2429b7a96);
+            
+        
+
+        marker_30e5c4989ad308dbfe46319f24ede0f3.bindPopup(popup_be5b9d3b8f9de37282fa96229c1d1615)
+        ;
+
+        
+    
+    
+            marker_30e5c4989ad308dbfe46319f24ede0f3.bindTooltip(
+                `<div>
+                     石岛湾核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5965dc5a7e08296fc8b4bbb229ee2b1c = L.marker(
+                [22.68, 114.99],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_74c41e1b63a0f5b16431ae5b2426be72 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5965dc5a7e08296fc8b4bbb229ee2b1c.setIcon(icon_74c41e1b63a0f5b16431ae5b2426be72);
+        
+    
+        var popup_1d8e946dd475594d5a4bc271fbd9bc78 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_fad00e5c3e9e785f8c4f98d792d65066 = $(`<div id="html_fad00e5c3e9e785f8c4f98d792d65066" style="width: 100.0%; height: 100.0%;">太平岭-1:	 类型:PWR 状态:建设中 地点:惠州 参考单位功率[MW]:1116 总电容[MW]:1202<br>太平岭-2:	 类型:PWR 状态:建设中 地点:惠州 参考单位功率[MW]:1116 总电容[MW]:1202<br><a href="https://baike.baidu.com/item/%E5%A4%AA%E5%B9%B3%E5%B2%AD%E6%A0%B8%E7%94%B5%E7%AB%99/22403107">太平岭核电站</a></div>`)[0];
+                popup_1d8e946dd475594d5a4bc271fbd9bc78.setContent(html_fad00e5c3e9e785f8c4f98d792d65066);
+            
+        
+
+        marker_5965dc5a7e08296fc8b4bbb229ee2b1c.bindPopup(popup_1d8e946dd475594d5a4bc271fbd9bc78)
+        ;
+
+        
+    
+    
+            marker_5965dc5a7e08296fc8b4bbb229ee2b1c.bindTooltip(
+                `<div>
+                     太平岭核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_90ba922c42cabb478a8ec8bd7483e14b = L.marker(
+                [21.92, 112.97],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_a79cded9e5d63c590dff8e0623accccc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_90ba922c42cabb478a8ec8bd7483e14b.setIcon(icon_a79cded9e5d63c590dff8e0623accccc);
+        
+    
+        var popup_2905354602617bf3a69184fa38b24a4f = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_f6bfa5cdf688abf399c6d19f30b1e211 = $(`<div id="html_f6bfa5cdf688abf399c6d19f30b1e211" style="width: 100.0%; height: 100.0%;">台山-1:	 类型:PWR 状态:运行中 地点:台山 参考单位功率[MW]:1660 总电容[MW]:1750<br>台山-2:	 类型:PWR 状态:运行中 地点:台山 参考单位功率[MW]:1660 总电容[MW]:1750<br><a href="https://www.tnpjvc.com.cn/">台山核电站</a></div>`)[0];
+                popup_2905354602617bf3a69184fa38b24a4f.setContent(html_f6bfa5cdf688abf399c6d19f30b1e211);
+            
+        
+
+        marker_90ba922c42cabb478a8ec8bd7483e14b.bindPopup(popup_2905354602617bf3a69184fa38b24a4f)
+        ;
+
+        
+    
+    
+            marker_90ba922c42cabb478a8ec8bd7483e14b.bindTooltip(
+                `<div>
+                     台山核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_99eab6075fec26055dacf1ee23a31caf = L.marker(
+                [22.75, 115.8],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_2eb22781be06799d53652739368b81ad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_99eab6075fec26055dacf1ee23a31caf.setIcon(icon_2eb22781be06799d53652739368b81ad);
+        
+    
+        var popup_b85d067a646cef8801724dd5be5a316b = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_60e9317b490ed0b00e9f79fd15e408b1 = $(`<div id="html_60e9317b490ed0b00e9f79fd15e408b1" style="width: 100.0%; height: 100.0%;">陆丰-6:	 类型:PWR 状态:建设中 地点:陆丰 参考单位功率[MW]:1116 总电容[MW]:1200<br>陆丰-5:	 类型:PWR 状态:建设中 地点:陆丰 参考单位功率[MW]:1116 总电容[MW]:1200<br><a href="https://baike.baidu.com/item/%E9%99%86%E4%B8%B0%E6%A0%B8%E7%94%B5%E7%AB%99/2681015">陆丰核电站</a></div>`)[0];
+                popup_b85d067a646cef8801724dd5be5a316b.setContent(html_60e9317b490ed0b00e9f79fd15e408b1);
+            
+        
+
+        marker_99eab6075fec26055dacf1ee23a31caf.bindPopup(popup_b85d067a646cef8801724dd5be5a316b)
+        ;
+
+        
+    
+    
+            marker_99eab6075fec26055dacf1ee23a31caf.bindTooltip(
+                `<div>
+                     陆丰核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1cee9685082f441d71416d6f14a601ec = L.marker(
+                [22.6, 114.55],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_4ced52fb7909d39237ea118661822952 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_1cee9685082f441d71416d6f14a601ec.setIcon(icon_4ced52fb7909d39237ea118661822952);
+        
+    
+        var popup_9c4a6260d9e615f80520207cfb1e4e22 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_3dfefe7787faccb6a32e4de09a17ca7d = $(`<div id="html_3dfefe7787faccb6a32e4de09a17ca7d" style="width: 100.0%; height: 100.0%;">岭澳-4:	 类型:PWR 状态:运行中 地点:深圳 参考单位功率[MW]:1007 总电容[MW]:1086<br>岭澳-3:	 类型:PWR 状态:运行中 地点:深圳 参考单位功率[MW]:1007 总电容[MW]:1086<br>岭澳-2:	 类型:PWR 状态:运行中 地点:深圳 参考单位功率[MW]:950 总电容[MW]:990<br>岭澳-1:	 类型:PWR 状态:运行中 地点:深圳 参考单位功率[MW]:950 总电容[MW]:990<br><a href="https://baike.baidu.com/item/%E5%B2%AD%E6%BE%B3%E6%A0%B8%E7%94%B5%E7%AB%99/4109078">岭澳核电站</a></div>`)[0];
+                popup_9c4a6260d9e615f80520207cfb1e4e22.setContent(html_3dfefe7787faccb6a32e4de09a17ca7d);
+            
+        
+
+        marker_1cee9685082f441d71416d6f14a601ec.bindPopup(popup_9c4a6260d9e615f80520207cfb1e4e22)
+        ;
+
+        
+    
+    
+            marker_1cee9685082f441d71416d6f14a601ec.bindTooltip(
+                `<div>
+                     岭澳核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_36f919a05e62ede801da4386c5237ad3 = L.marker(
+                [21.52, 109.83],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_5e0f5b22952c90c0fb4acf208119eef3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_36f919a05e62ede801da4386c5237ad3.setIcon(icon_5e0f5b22952c90c0fb4acf208119eef3);
+        
+    
+        var popup_e6a1add03a2ab3e9f31ea520e62ce4cb = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_fdd6bfee524b377671ce43f922315872 = $(`<div id="html_fdd6bfee524b377671ce43f922315872" style="width: 100.0%; height: 100.0%;">廉江-2:	 类型:PWR 状态:建设中 地点:廉江 参考单位功率[MW]:1224 总电容[MW]:1224<br>廉江-1:	 类型:PWR 状态:建设中 地点:廉江 参考单位功率[MW]:1224 总电容[MW]:1224<br><a href="https://baike.baidu.com/item/%E5%B9%BF%E4%B8%9C%E5%BB%89%E6%B1%9F%E6%A0%B8%E7%94%B5%E9%A1%B9%E7%9B%AE/62003692">廉江核电站</a></div>`)[0];
+                popup_e6a1add03a2ab3e9f31ea520e62ce4cb.setContent(html_fdd6bfee524b377671ce43f922315872);
+            
+        
+
+        marker_36f919a05e62ede801da4386c5237ad3.bindPopup(popup_e6a1add03a2ab3e9f31ea520e62ce4cb)
+        ;
+
+        
+    
+    
+            marker_36f919a05e62ede801da4386c5237ad3.bindTooltip(
+                `<div>
+                     廉江核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ef241f449bf793875cbd008a1da0e56b = L.marker(
+                [39.7834, 121.4832],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_b2d7a077db24a63dced08aef7214a053 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_ef241f449bf793875cbd008a1da0e56b.setIcon(icon_b2d7a077db24a63dced08aef7214a053);
+        
+    
+        var popup_eefc634ca763b4d3886f4bcf6b2f564e = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_c72fdc93afa554b374ad0ded3ff08590 = $(`<div id="html_c72fdc93afa554b374ad0ded3ff08590" style="width: 100.0%; height: 100.0%;">红沿河-6:	 类型:PWR 状态:运行中 地点:大连 参考单位功率[MW]:1061 总电容[MW]:1119<br>红沿河-5:	 类型:PWR 状态:运行中 地点:大连 参考单位功率[MW]:1061 总电容[MW]:1119<br>红沿河-4:	 类型:PWR 状态:运行中 地点:大连 参考单位功率[MW]:1061 总电容[MW]:1119<br>红沿河-3:	 类型:PWR 状态:运行中 地点:大连 参考单位功率[MW]:1061 总电容[MW]:1119<br>红沿河-2:	 类型:PWR 状态:运行中 地点:大连 参考单位功率[MW]:1061 总电容[MW]:1119<br>红沿河-1:	 类型:PWR 状态:运行中 地点:大连 参考单位功率[MW]:1061 总电容[MW]:1119<br><a href="https://baike.baidu.com/item/%E8%BE%BD%E5%AE%81%E7%BA%A2%E6%B2%BF%E6%B2%B3%E6%A0%B8%E7%94%B5%E7%AB%99/6557513">红沿河核电站</a></div>`)[0];
+                popup_eefc634ca763b4d3886f4bcf6b2f564e.setContent(html_c72fdc93afa554b374ad0ded3ff08590);
+            
+        
+
+        marker_ef241f449bf793875cbd008a1da0e56b.bindPopup(popup_eefc634ca763b4d3886f4bcf6b2f564e)
+        ;
+
+        
+    
+    
+            marker_ef241f449bf793875cbd008a1da0e56b.bindTooltip(
+                `<div>
+                     红沿河核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_22481367382c34f00b4bec790f531403 = L.marker(
+                [36.715, 121.384],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_154bc99948906345066703c088079fa8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_22481367382c34f00b4bec790f531403.setIcon(icon_154bc99948906345066703c088079fa8);
+        
+    
+        var popup_b30e9e20c9c41ba56a555a316c76d3f4 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_99e8a8967e780ae30c699020f34ea51a = $(`<div id="html_99e8a8967e780ae30c699020f34ea51a" style="width: 100.0%; height: 100.0%;">海阳-4:	 类型:PWR 状态:建设中 地点:海阳 参考单位功率[MW]:1161 总电容[MW]:1253<br>海阳-3:	 类型:PWR 状态:建设中 地点:海阳 参考单位功率[MW]:1161 总电容[MW]:1253<br>海阳-2:	 类型:PWR 状态:运行中 地点:海阳 参考单位功率[MW]:1170 总电容[MW]:1250<br>海阳-1:	 类型:PWR 状态:运行中 地点:海阳 参考单位功率[MW]:1170 总电容[MW]:1250<br><a href="https://baike.baidu.com/item/%E6%B5%B7%E9%98%B3%E6%A0%B8%E7%94%B5%E7%AB%99/12760106">海阳核电站</a></div>`)[0];
+                popup_b30e9e20c9c41ba56a555a316c76d3f4.setContent(html_99e8a8967e780ae30c699020f34ea51a);
+            
+        
+
+        marker_22481367382c34f00b4bec790f531403.bindPopup(popup_b30e9e20c9c41ba56a555a316c76d3f4)
+        ;
+
+        
+    
+    
+            marker_22481367382c34f00b4bec790f531403.bindTooltip(
+                `<div>
+                     海阳核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_77bd8b0f9c899bdc4bb353a15834a8a0 = L.marker(
+                [22.6, 114.6],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_479f956f4fa287f2666ea995cce1b552 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_77bd8b0f9c899bdc4bb353a15834a8a0.setIcon(icon_479f956f4fa287f2666ea995cce1b552);
+        
+    
+        var popup_8c7e8f1ee324e1b2fc9ebe55d9780042 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_dfd598760ad18217bc4c7d227408aa62 = $(`<div id="html_dfd598760ad18217bc4c7d227408aa62" style="width: 100.0%; height: 100.0%;">大亚湾-2:	 类型:PWR 状态:运行中 地点:深圳 参考单位功率[MW]:944 总电容[MW]:984<br>大亚湾-1:	 类型:PWR 状态:运行中 地点:深圳 参考单位功率[MW]:944 总电容[MW]:984<br><a href="https://baike.baidu.com/item/%E5%A4%A7%E4%BA%9A%E6%B9%BE%E6%A0%B8%E7%94%B5%E7%AB%99/1022211">大亚湾核电站</a></div>`)[0];
+                popup_8c7e8f1ee324e1b2fc9ebe55d9780042.setContent(html_dfd598760ad18217bc4c7d227408aa62);
+            
+        
+
+        marker_77bd8b0f9c899bdc4bb353a15834a8a0.bindPopup(popup_8c7e8f1ee324e1b2fc9ebe55d9780042)
+        ;
+
+        
+    
+    
+            marker_77bd8b0f9c899bdc4bb353a15834a8a0.bindTooltip(
+                `<div>
+                     大亚湾核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_43425372ed66f30bbd7e96e1625f0810 = L.marker(
+                [25.45, 119.4],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_74ddde1ec4be823ee3c04a3d1e6f48de = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_43425372ed66f30bbd7e96e1625f0810.setIcon(icon_74ddde1ec4be823ee3c04a3d1e6f48de);
+        
+    
+        var popup_7201393f3edd6bdaa173dce63cb7a973 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_0c1f9452fd450865fa242129896bd785 = $(`<div id="html_0c1f9452fd450865fa242129896bd785" style="width: 100.0%; height: 100.0%;">福清-6:	 类型:PWR 状态:运行中 地点:福清 参考单位功率[MW]:1075 总电容[MW]:1150<br>福清-5:	 类型:PWR 状态:运行中 地点:福清 参考单位功率[MW]:1075 总电容[MW]:1161<br>福清-4:	 类型:PWR 状态:运行中 地点:福清 参考单位功率[MW]:1000 总电容[MW]:1089<br>福清-3:	 类型:PWR 状态:运行中 地点:福清 参考单位功率[MW]:1000 总电容[MW]:1089<br>福清-2:	 类型:PWR 状态:运行中 地点:福清 参考单位功率[MW]:1000 总电容[MW]:1089<br>福清-1:	 类型:PWR 状态:运行中 地点:福清 参考单位功率[MW]:1000 总电容[MW]:1089<br><a href="https://baike.baidu.com/item/%E7%A6%8F%E6%B8%85%E6%A0%B8%E7%94%B5%E7%AB%99/3103152">福清核电站</a></div>`)[0];
+                popup_7201393f3edd6bdaa173dce63cb7a973.setContent(html_0c1f9452fd450865fa242129896bd785);
+            
+        
+
+        marker_43425372ed66f30bbd7e96e1625f0810.bindPopup(popup_7201393f3edd6bdaa173dce63cb7a973)
+        ;
+
+        
+    
+    
+            marker_43425372ed66f30bbd7e96e1625f0810.bindTooltip(
+                `<div>
+                     福清核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1f2fec02fb5544c2ec4f380abda24094 = L.marker(
+                [21.61, 108.3],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_3b02cba5bbe2725b45a0e5cfb491f55e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_1f2fec02fb5544c2ec4f380abda24094.setIcon(icon_3b02cba5bbe2725b45a0e5cfb491f55e);
+        
+    
+        var popup_32f98ca28453ec0941d4367a205ac166 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_5a8206efaa7504451ac4aae534822e59 = $(`<div id="html_5a8206efaa7504451ac4aae534822e59" style="width: 100.0%; height: 100.0%;">防城港-4:	 类型:PWR 状态:运行中 地点:防城港 参考单位功率[MW]:1000 总电容[MW]:1180<br>防城港-3:	 类型:PWR 状态:运行中 地点:防城港 参考单位功率[MW]:1000 总电容[MW]:1180<br>防城港-2:	 类型:PWR 状态:运行中 地点:防城港 参考单位功率[MW]:1000 总电容[MW]:1086<br>防城港-1:	 类型:PWR 状态:运行中 地点:防城港 参考单位功率[MW]:1000 总电容[MW]:1086<br><a href="https://baike.baidu.com/item/%E5%B9%BF%E8%A5%BF%E9%98%B2%E5%9F%8E%E6%B8%AF%E6%A0%B8%E7%94%B5%E7%AB%99/16799549">防城港核电站</a></div>`)[0];
+                popup_32f98ca28453ec0941d4367a205ac166.setContent(html_5a8206efaa7504451ac4aae534822e59);
+            
+        
+
+        marker_1f2fec02fb5544c2ec4f380abda24094.bindPopup(popup_32f98ca28453ec0941d4367a205ac166)
+        ;
+
+        
+    
+    
+            marker_1f2fec02fb5544c2ec4f380abda24094.bindTooltip(
+                `<div>
+                     防城港核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3b983379b57e22d9129771929e9422f8 = L.marker(
+                [26.804, 120.1585],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_9bbde6c7163e51ef5b2e8903f1854ec8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3b983379b57e22d9129771929e9422f8.setIcon(icon_9bbde6c7163e51ef5b2e8903f1854ec8);
+        
+    
+        var popup_54fc052fe0a30ae845ab9b316f276a52 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_7b8dce5a78a1cc8df321ccee14876718 = $(`<div id="html_7b8dce5a78a1cc8df321ccee14876718" style="width: 100.0%; height: 100.0%;">霞浦-2:	 类型:FBR 状态:建设中 地点:霞浦县 参考单位功率[MW]:642 总电容[MW]:682<br>霞浦-1:	 类型:FBR 状态:建设中 地点:霞浦县 参考单位功率[MW]:642 总电容[MW]:682<br><a href="https://www.cnnp.com.cn/cnnp/cydwzd62/zhxphdyxgs/1101371/index.html">霞浦核电站</a></div>`)[0];
+                popup_54fc052fe0a30ae845ab9b316f276a52.setContent(html_7b8dce5a78a1cc8df321ccee14876718);
+            
+        
+
+        marker_3b983379b57e22d9129771929e9422f8.bindPopup(popup_54fc052fe0a30ae845ab9b316f276a52)
+        ;
+
+        
+    
+    
+            marker_3b983379b57e22d9129771929e9422f8.bindTooltip(
+                `<div>
+                     霞浦核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7f710573308b73ff699631b83b443cff = L.marker(
+                [19.39, 108.81],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_ebab9ee0189308a1c76205d8da605275 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_7f710573308b73ff699631b83b443cff.setIcon(icon_ebab9ee0189308a1c76205d8da605275);
+        
+    
+        var popup_05be4ae24a7dfd038ff4012bb0d6b41a = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_ace3f3ddbb1964dd9aec5d42708a3cd9 = $(`<div id="html_ace3f3ddbb1964dd9aec5d42708a3cd9" style="width: 100.0%; height: 100.0%;">玲龙-1:	 类型:PWR 状态:建设中 地点:昌江 参考单位功率[MW]:100 总电容[MW]:125<br><a href="https://baike.baidu.com/item/%E7%8E%B2%E9%BE%99%E4%B8%80%E5%8F%B7/20780954">玲龙一号</a></div>`)[0];
+                popup_05be4ae24a7dfd038ff4012bb0d6b41a.setContent(html_ace3f3ddbb1964dd9aec5d42708a3cd9);
+            
+        
+
+        marker_7f710573308b73ff699631b83b443cff.bindPopup(popup_05be4ae24a7dfd038ff4012bb0d6b41a)
+        ;
+
+        
+    
+    
+            marker_7f710573308b73ff699631b83b443cff.bindTooltip(
+                `<div>
+                     玲龙核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c6f95dc63fc557f66e2304148d7cb6bb = L.marker(
+                [19.459, 108.9],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_a970b2a0182b948e3b52485425423dfd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_c6f95dc63fc557f66e2304148d7cb6bb.setIcon(icon_a970b2a0182b948e3b52485425423dfd);
+        
+    
+        var popup_759dc9e74b6a44ed2ce5c2fb8dcd976b = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_ce286a4269567d72d8192b57ebd5f672 = $(`<div id="html_ce286a4269567d72d8192b57ebd5f672" style="width: 100.0%; height: 100.0%;">昌江-4:	 类型:PWR 状态:建设中 地点:昌江 参考单位功率[MW]:1000 总电容[MW]:1198<br>昌江-3:	 类型:PWR 状态:建设中 地点:昌江 参考单位功率[MW]:1000 总电容[MW]:1198<br>昌江-2:	 类型:PWR 状态:运行中 地点:昌江 参考单位功率[MW]:601 总电容[MW]:650<br>昌江-1:	 类型:PWR 状态:运行中 地点:昌江 参考单位功率[MW]:601 总电容[MW]:650<br><a href="https://baike.baidu.com/item/%E6%B5%B7%E5%8D%97%E6%98%8C%E6%B1%9F%E6%A0%B8%E7%94%B5%E7%AB%99/497847">昌江核电站</a></div>`)[0];
+                popup_759dc9e74b6a44ed2ce5c2fb8dcd976b.setContent(html_ce286a4269567d72d8192b57ebd5f672);
+            
+        
+
+        marker_c6f95dc63fc557f66e2304148d7cb6bb.bindPopup(popup_759dc9e74b6a44ed2ce5c2fb8dcd976b)
+        ;
+
+        
+    
+    
+            marker_c6f95dc63fc557f66e2304148d7cb6bb.bindTooltip(
+                `<div>
+                     昌江核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_806ee2519add7e17c85f7ae6cc9e40bc = L.marker(
+                [27.27, 120.46],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_369491d3d70ad3550788a5e53cc5dce3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_806ee2519add7e17c85f7ae6cc9e40bc.setIcon(icon_369491d3d70ad3550788a5e53cc5dce3);
+        
+    
+        var popup_49e15a873b38c28c3578acb7cb5bf043 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_2b2b53f03cd5d053fd33b6219c282be9 = $(`<div id="html_2b2b53f03cd5d053fd33b6219c282be9" style="width: 100.0%; height: 100.0%;">三澳-2:	 类型:PWR 状态:建设中 地点:温州 参考单位功率[MW]:1117 总电容[MW]:1210<br>三澳-1:	 类型:PWR 状态:建设中 地点:温州 参考单位功率[MW]:1117 总电容[MW]:1210<br><a href="https://baike.baidu.com/item/%E6%B5%99%E6%B1%9F%E4%B8%89%E6%BE%B3%E6%A0%B8%E7%94%B5%E7%AB%99/53482817">三澳核电站</a></div>`)[0];
+                popup_49e15a873b38c28c3578acb7cb5bf043.setContent(html_2b2b53f03cd5d053fd33b6219c282be9);
+            
+        
+
+        marker_806ee2519add7e17c85f7ae6cc9e40bc.bindPopup(popup_49e15a873b38c28c3578acb7cb5bf043)
+        ;
+
+        
+    
+    
+            marker_806ee2519add7e17c85f7ae6cc9e40bc.bindTooltip(
+                `<div>
+                     三澳核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_03216222130497e2a101c95a4b114ea2 = L.marker(
+                [29.74, 112.8],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_c5a61e62b7b4ee8087661edd45598165 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_03216222130497e2a101c95a4b114ea2.setIcon(icon_c5a61e62b7b4ee8087661edd45598165);
+        
+    
+        var popup_f0feb58b95681e166321b2f9d80b83d4 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_c8147b1f1254883f86349a6b2a366350 = $(`<div id="html_c8147b1f1254883f86349a6b2a366350" style="width: 100.0%; height: 100.0%;"><a href="https://baike.baidu.com/item/%E5%B0%8F%E5%A2%A8%E5%B1%B1%E6%A0%B8%E7%94%B5/441939">小墨山核电站: </a><br>状态:计划中 地点:岳阳<br></div>`)[0];
+                popup_f0feb58b95681e166321b2f9d80b83d4.setContent(html_c8147b1f1254883f86349a6b2a366350);
+            
+        
+
+        marker_03216222130497e2a101c95a4b114ea2.bindPopup(popup_f0feb58b95681e166321b2f9d80b83d4)
+        ;
+
+        
+    
+    
+            marker_03216222130497e2a101c95a4b114ea2.bindTooltip(
+                `<div>
+                     小墨山核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4d38460069e8544733378681c1507c58 = L.marker(
+                [33.32, 112.5],
+                {}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+        
+    
+            var icon_10c8105a51dcca3d88476e5ab3d59a9a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_4d38460069e8544733378681c1507c58.setIcon(icon_10c8105a51dcca3d88476e5ab3d59a9a);
+        
+    
+        var popup_0337602f5dd11480d277cb1706d81811 = L.popup({"maxWidth": 800});
+
+        
+            
+                var html_d00ea0e9e170211c9a09a910156e979d = $(`<div id="html_d00ea0e9e170211c9a09a910156e979d" style="width: 100.0%; height: 100.0%;"><a href="https://baike.baidu.com/item/%E5%8D%97%E9%98%B3%E6%A0%B8%E7%94%B5%E7%AB%99/3823381">南阳核电站: </a><br>状态:计划中 地点:南阳<br></div>`)[0];
+                popup_0337602f5dd11480d277cb1706d81811.setContent(html_d00ea0e9e170211c9a09a910156e979d);
+            
+        
+
+        marker_4d38460069e8544733378681c1507c58.bindPopup(popup_0337602f5dd11480d277cb1706d81811)
+        ;
+
+        
+    
+    
+            marker_4d38460069e8544733378681c1507c58.bindTooltip(
+                `<div>
+                     南阳核电站
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+                var lat_lng_popup_0d86cbb41c14b9882aa756e308b5cd6d = L.popup();
+                function latLngPop(e) {
+                    lat_lng_popup_0d86cbb41c14b9882aa756e308b5cd6d
+                        .setLatLng(e.latlng)
+                        .setContent("Latitude: " + e.latlng.lat.toFixed(4) +
+                                    "<br>Longitude: " + e.latlng.lng.toFixed(4))
+                        .openOn(map_62c51a80a06981def43e340bf7ab16e2);
+                    }
+                map_62c51a80a06981def43e340bf7ab16e2.on('click', latLngPop);
+            
+    
+
+        function geo_json_0da5dd9fa164ca71b4478bfd5bd56e8f_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_0da5dd9fa164ca71b4478bfd5bd56e8f = L.geoJson(null, {
+                onEachFeature: geo_json_0da5dd9fa164ca71b4478bfd5bd56e8f_onEachFeature,
+            
+        });
+
+        function geo_json_0da5dd9fa164ca71b4478bfd5bd56e8f_add (data) {
+            geo_json_0da5dd9fa164ca71b4478bfd5bd56e8f
+                .addData(data);
+        }
+            geo_json_0da5dd9fa164ca71b4478bfd5bd56e8f_add({"features": [{"geometry": {"coordinates": [117.49, 23.82], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u6f33\u5dde", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 23.82, "\u7ecf\u5ea6": 117.49}, "type": "Feature"}, {"geometry": {"coordinates": [112.3, 21.71], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u9633\u6c5f", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 21.71, "\u7ecf\u5ea6": 112.3}, "type": "Feature"}, {"geometry": {"coordinates": [120.53, 40.35], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u5f90\u5927\u5821", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 40.35, "\u7ecf\u5ea6": 120.53}, "type": "Feature"}, {"geometry": {"coordinates": [119.45, 34.7], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u7530\u6e7e", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 34.7, "\u7ecf\u5ea6": 119.45}, "type": "Feature"}, {"geometry": {"coordinates": [120.3, 27.03], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u5b81\u5fb7", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 27.03, "\u7ecf\u5ea6": 120.3}, "type": "Feature"}, {"geometry": {"coordinates": [120.95, 30.45], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u79e6\u5c71", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 30.45, "\u7ecf\u5ea6": 120.95}, "type": "Feature"}, {"geometry": {"coordinates": [120.93, 30.44], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u65b9\u5bb6\u5c71", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 30.44, "\u7ecf\u5ea6": 120.93}, "type": "Feature"}, {"geometry": {"coordinates": [121.6, 29.1], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u4e09\u95e8", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 29.1, "\u7ecf\u5ea6": 121.6}, "type": "Feature"}, {"geometry": {"coordinates": [122.52, 36.97], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u77f3\u5c9b\u6e7e", "\u7c7b\u578b": "HTGR", "\u7eac\u5ea6": 36.97, "\u7ecf\u5ea6": 122.52}, "type": "Feature"}, {"geometry": {"coordinates": [114.99, 22.68], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u592a\u5e73\u5cad", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 22.68, "\u7ecf\u5ea6": 114.99}, "type": "Feature"}, {"geometry": {"coordinates": [112.97, 21.92], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u53f0\u5c71", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 21.92, "\u7ecf\u5ea6": 112.97}, "type": "Feature"}, {"geometry": {"coordinates": [115.8, 22.75], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u9646\u4e30", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 22.75, "\u7ecf\u5ea6": 115.8}, "type": "Feature"}, {"geometry": {"coordinates": [114.55, 22.6], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u5cad\u6fb3", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 22.6, "\u7ecf\u5ea6": 114.55}, "type": "Feature"}, {"geometry": {"coordinates": [109.83, 21.52], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u5ec9\u6c5f", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 21.52, "\u7ecf\u5ea6": 109.83}, "type": "Feature"}, {"geometry": {"coordinates": [121.4832, 39.7834], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u7ea2\u6cbf\u6cb3", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 39.7834, "\u7ecf\u5ea6": 121.4832}, "type": "Feature"}, {"geometry": {"coordinates": [121.384, 36.715], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u6d77\u9633", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 36.715, "\u7ecf\u5ea6": 121.384}, "type": "Feature"}, {"geometry": {"coordinates": [114.6, 22.6], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u5927\u4e9a\u6e7e", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 22.6, "\u7ecf\u5ea6": 114.6}, "type": "Feature"}, {"geometry": {"coordinates": [119.4, 25.45], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u798f\u6e05", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 25.45, "\u7ecf\u5ea6": 119.4}, "type": "Feature"}, {"geometry": {"coordinates": [108.3, 21.61], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u9632\u57ce\u6e2f", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 21.61, "\u7ecf\u5ea6": 108.3}, "type": "Feature"}, {"geometry": {"coordinates": [120.1585, 26.804], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u971e\u6d66", "\u7c7b\u578b": "FBR", "\u7eac\u5ea6": 26.804, "\u7ecf\u5ea6": 120.1585}, "type": "Feature"}, {"geometry": {"coordinates": [108.81, 19.39], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u73b2\u9f99", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 19.39, "\u7ecf\u5ea6": 108.81}, "type": "Feature"}, {"geometry": {"coordinates": [108.9, 19.459], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u660c\u6c5f", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 19.459, "\u7ecf\u5ea6": 108.9}, "type": "Feature"}, {"geometry": {"coordinates": [120.46, 27.27], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u4e09\u6fb3", "\u7c7b\u578b": "PWR", "\u7eac\u5ea6": 27.27, "\u7ecf\u5ea6": 120.46}, "type": "Feature"}, {"geometry": {"coordinates": [112.8, 29.74], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u5c0f\u58a8\u5c71", "\u7c7b\u578b": null, "\u7eac\u5ea6": 29.74, "\u7ecf\u5ea6": 112.8}, "type": "Feature"}, {"geometry": {"coordinates": [112.5, 33.32], "type": "Point"}, "properties": {"\u6838\u7535\u7ad9\u540d\u79f0": "\u5357\u9633", "\u7c7b\u578b": null, "\u7eac\u5ea6": 33.32, "\u7ecf\u5ea6": 112.5}, "type": "Feature"}], "type": "FeatureCollection"});
+        geo_json_0da5dd9fa164ca71b4478bfd5bd56e8f.setStyle(function(feature) {return feature.properties.style;});
+
+        
+    
+    geo_json_0da5dd9fa164ca71b4478bfd5bd56e8f.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature=>typeof(feature)=='object' ? JSON.stringify(feature) : feature;
+    let fields = ["\u6838\u7535\u7ad9\u540d\u79f0", "\u7ecf\u5ea6", "\u7eac\u5ea6", "\u7c7b\u578b"];
+    let aliases = ["\u6838\u7535\u7ad9\u540d\u79f0", "\u7ecf\u5ea6", "\u7eac\u5ea6", "\u7c7b\u578b"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i].toLocaleString()}</th>
+            
+            <td>${handleObject(layer.feature.properties[v]).toLocaleString()}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{"className": "foliumtooltip", "sticky": true});
+                     
+    
+            var geo_json_0da5dd9fa164ca71b4478bfd5bd56e8fsearchControl = new L.Control.Search({
+                layer: geo_json_0da5dd9fa164ca71b4478bfd5bd56e8f,
+                
+                propertyName: '核电站名称',
+                
+                collapsed: false,
+                textPlaceholder: 'Search',
+                position:'topright',
+            
+                initial: false,
+                
+                zoom: 14,
+                
+                hideMarkerOnCollapse: true
+            
+                });
+                geo_json_0da5dd9fa164ca71b4478bfd5bd56e8fsearchControl.on('search:locationfound', function(e) {
+                    geo_json_0da5dd9fa164ca71b4478bfd5bd56e8f.setStyle(function(feature){
+                        return feature.properties.style
+                    })
+                    
+                    if(e.layer._popup)
+                        e.layer.openPopup();
+                })
+                geo_json_0da5dd9fa164ca71b4478bfd5bd56e8fsearchControl.on('search:collapsed', function(e) {
+                        geo_json_0da5dd9fa164ca71b4478bfd5bd56e8f.setStyle(function(feature){
+                            return feature.properties.style
+                    });
+                });
+            map_62c51a80a06981def43e340bf7ab16e2.addControl( geo_json_0da5dd9fa164ca71b4478bfd5bd56e8fsearchControl );
+
+        
+    
+            var layer_control_525d5d2513558dcee7a49811a770368a_layers = {
+                base_layers : {
+                    "\u6807\u51c6\u6a21\u5f0f" : tile_layer_27f05d1d988303377a9aa2441ddda0c2,
+                },
+                overlays :  {
+                    "\u7b80\u6613\u6a21\u5f0f" : geo_json_0da5dd9fa164ca71b4478bfd5bd56e8f,
+                },
+            };
+            let layer_control_525d5d2513558dcee7a49811a770368a = L.control.layers(
+                layer_control_525d5d2513558dcee7a49811a770368a_layers.base_layers,
+                layer_control_525d5d2513558dcee7a49811a770368a_layers.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_62c51a80a06981def43e340bf7ab16e2);
+
+        
+</script>
+</html>
